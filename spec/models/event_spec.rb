@@ -7,6 +7,9 @@ RSpec.describe Event, type: :model do
   it "requires a date" do
     expect(build(:event, date:'')).to be_invalid
   end
+  it "date cannot be in the past" do
+    expect(build(:event, date: '01/10/2015')).to be_invalid
+  end
   it "requires a city" do
     expect(build(:event, city:'')).to be_invalid
   end
